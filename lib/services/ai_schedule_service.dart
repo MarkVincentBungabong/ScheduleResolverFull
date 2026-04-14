@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import '../models/task_model.dart';
@@ -11,7 +10,7 @@ class AiScheduleService extends ChangeNotifier {
   bool _isLoading = false;
   String? _errorMessage;
 
-  final String _apiKey =' ';
+  final String _apiKey ='AIzaSyDif8vd74YYv25S38NYqBGl8AfhajhE9Ak';
 
   ScheduleAnalysis? get currentAnalysis => _currentAnalysis;
   bool get isLoading => _isLoading;
@@ -72,7 +71,7 @@ class AiScheduleService extends ChangeNotifier {
     for (var section in sections) {
       if (section.startsWith('Detected Conflicts')) conflicts = section.replaceFirst('Detected Conflicts', '').trim();
       else if (section.startsWith('Ranked Tasks')) rankedTasks = section.replaceFirst('Ranked Tasks', '').trim();
-      else if (section.startsWith('Ranked Schedule')) recommendedSchedule = section.replaceFirst('Ranked Schedule', '').trim();
+      else if (section.startsWith('Recommended Schedule')) recommendedSchedule = section.replaceFirst('Recommended Schedule', '').trim();
       else if (section.startsWith('Explanation')) explanation = section.replaceFirst('Explanation', '').trim();
     }
 
